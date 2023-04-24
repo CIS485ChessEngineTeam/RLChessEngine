@@ -22,4 +22,8 @@ public class Node {
         this.parent = null;
         this.children = new ArrayList<>();
     }
+
+    public double getReward() {
+        return reward;
+    }
 }

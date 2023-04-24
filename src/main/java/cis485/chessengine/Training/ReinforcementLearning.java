@@ -181,8 +181,8 @@ public class ReinforcementLearning {
             trainingModel.setInputMiniBatchSize(Math.min(positions.size(), MINI_BATCH_SIZE));
             trainingModel.fit(data);
             System.out.println("\tTraining finished.");
-            double loss = collectScoresListener.getListScore().getDouble(collectScoresListener.getListScore().size() - 1);
-            System.out.println("Loss: " + loss);
+            //double loss = collectScoresListener.getListScore().getDouble(collectScoresListener.getListScore().size() - 1);
+            //System.out.println("Loss: " + loss);
 
             eps -= EPS_DECAY;
             if (eps < EPS_END) {
@@ -194,7 +194,8 @@ public class ReinforcementLearning {
             try {
                 FileWriter fw = new FileWriter("C:\\Users\\drewm\\Desktop\\EngineModels\\RL_model_training_graph.csv", true);
                 BufferedWriter bw = new BufferedWriter(fw);
-                bw.write(wins + "," + losses + "," + draws + "," + eps + "," + avgReward + ", " + loss);
+                //bw.write(wins + "," + losses + "," + draws + "," + eps + "," + avgReward + ", " + loss);
+                bw.write(wins + "," + losses + "," + draws + "," + eps + "," + avgReward);
                 bw.newLine();
                 bw.close();
             } catch (IOException e) {

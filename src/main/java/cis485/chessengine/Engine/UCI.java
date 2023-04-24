@@ -6,7 +6,6 @@ import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
 import org.nd4j.shade.guava.util.concurrent.MoreExecutors;
 
 import java.io.*;
-import java.net.URL;
 import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -20,7 +19,6 @@ public class UCI {
 
     public static void main(String[] args) {
         MultiLayerNetwork model = null;
-        //String modelVersion = System.getProperty("user.dir") + "\\src\\main\\java\\cis485\\chessengine\\Engine\\Model\\SL_MODEL_V1.mdl";
         try {
             String name = "res/RL_MODEL_V2.mdl";
             InputStream inputStream = ClassLoader.getSystemClassLoader().getResourceAsStream(name);
@@ -125,7 +123,8 @@ public class UCI {
             }
         }
         bestMove = engine.run(fen);
-        System.out.println("bestmove " + bestMove);
+        double score = engine.getBestNode().getReward();
+        System.out.println("bestmove " + bestMove + " " + score);
     }
     // Show board
     public static void print() {

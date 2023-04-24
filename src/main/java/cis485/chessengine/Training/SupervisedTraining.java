@@ -47,7 +47,7 @@ public class SupervisedTraining {
         // set up model
         MultiLayerNetwork model = ModelBuilder.Supervised.build();
 
-        setUpUI(model);
+        //setUpUI(model);
         model.setInputMiniBatchSize(MINI_BATCH_SIZE);
         train(model, trainingData, validationData, EPOCHS, MINI_BATCH_SIZE);
     }
@@ -85,6 +85,7 @@ public class SupervisedTraining {
         }
     }
 
+    /*
     private static void setUpUI(MultiLayerNetwork model) {
         // set up the ui: http://localhost:9000/train/overview
         VertxUIServer uiServer = VertxUIServer.getInstance(9000, false, null);
@@ -97,6 +98,7 @@ public class SupervisedTraining {
         }
         model.setListeners(new StatsListener(statsStorage));
     }
+     */
 
     private static double validate(MultiLayerNetwork model, DataSet data) {
         DataSetIterator iterator = new ViewIterator(data, MINI_BATCH_SIZE);
